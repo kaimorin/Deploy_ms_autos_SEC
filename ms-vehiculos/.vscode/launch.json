@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-BibliotecaVehiculosApplication<cl-matiivilla-vehiculos>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "cl.matiivilla.vehiculos.BibliotecaVehiculosApplication",
+            "projectName": "cl-matiivilla-vehiculos",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

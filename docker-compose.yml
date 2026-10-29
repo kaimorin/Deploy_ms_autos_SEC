@@ -1,0 +1,39 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_vehiculos
+    restart: always
+    command: --innodb_buffer_pool_size=128M
+    deploy:
+      resources:
+        limits:
+          memory: 350M
+    environment:
+      MYSQL_DATABASE: vehiculos
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-prootpassword"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  ms-vehiculos:
+    image: ghcr.io/kaimorin/ms-vehiculos:latest
+    container_name: ms_vehiculos_app
+    ports:
+      - "9004:9004"
+    environment:
+      DB_URL: jdbc:mysql://db:3306/vehiculos?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      DB_USERNAME: root
+      DB_PASSWORD: rootpassword
+      SERVER_PORT: 9004
+      JAVA_TOOL_OPTIONS: "-Xmx256m -Xms128m"
+    deploy:
+      resources:
+        limits:
+          memory: 350M
+    depends_on:
+      db:
+        condition: service_healthy
