@@ -191,7 +191,7 @@ jobs:
           script: |
             mkdir -p ~/app
             cd ~/app
-            curl -sSL https://raw.githubusercontent.com/kaimorin/Deploy-Dev-Sec-Ops/main/docker-compose.yml -o docker-compose.yml
+            curl -sSL https://raw.githubusercontent.com/kaimorin/Deploy-ms-autos-SEC/main/docker-compose.yml -o docker-compose.yml
             docker compose pull
             docker compose up -d
             docker compose ps
