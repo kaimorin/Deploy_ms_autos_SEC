@@ -18,7 +18,7 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
-
+#pal commit
   ms-vehiculos:
     image: ghcr.io/kaimorin/ms-vehiculos:latest
     container_name: ms_vehiculos_app
