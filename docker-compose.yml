@@ -7,7 +7,7 @@ services:
     deploy:
       resources:
         limits:
-          memory: 350M
+          memory: 1G
     environment:
       MYSQL_DATABASE: vehiculos
       MYSQL_ROOT_PASSWORD: rootpassword
@@ -18,7 +18,8 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
-#pal commit
+      start_period: 30s
+
   ms-vehiculos:
     image: ghcr.io/kaimorin/ms-vehiculos:latest
     container_name: ms_vehiculos_app
@@ -29,11 +30,11 @@ services:
       DB_USERNAME: root
       DB_PASSWORD: rootpassword
       SERVER_PORT: 9004
-      JAVA_TOOL_OPTIONS: "-Xmx256m -Xms128m"
+      JAVA_TOOL_OPTIONS: "-Xmx512m -Xms256m"
     deploy:
       resources:
         limits:
-          memory: 350M
+          memory: 1G
     depends_on:
       db:
         condition: service_healthy
