@@ -102,9 +102,9 @@ cd ms-vehiculos
  
 ```bash
 docker build -t ms-vehiculos ./ms-vehiculos
+```
 
-
-## Variables de entorno
+### Variables de entorno
  
 | Variable | Descripción | Valor por defecto |
 |----------|-------------|-------------------|
