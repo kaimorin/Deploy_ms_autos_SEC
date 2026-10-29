@@ -1,14 +1,13 @@
+server:
+  port: ${SERVER_PORT:9004}
+
 spring:
   application:
     name: ms-vehiculos
   datasource:
-    url: ${DB_URL:jdbc:mysql://18.205.235.34:3306/vehiculos?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
-    username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:rootpassword}
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
-
-server:
-  port: ${SERVER_PORT:9004}
